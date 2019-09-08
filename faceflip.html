@@ -38,6 +38,9 @@
 				ctx.drawImage(img, (theCanvas.width - width2) / 2, 0, width2, height2);
 			}
             imageData = ctx.getImageData(0, 0, theCanvas.width, theCanvas.height);
+
+            drawLine(theCanvas.width/2);
+            processed = false;
         }
         function drawLine(x) {
             if (processed)
@@ -256,11 +259,13 @@
 
 </head>
 <body>
-    <div style="position: absolute; top: 0px; left: 0px;">
+    <h2>Face Flip</h2>
+    <div style="position: absolute; top: 50px; left: 0px;">
         <canvas id="canvas" width="640" height="480" onmousemove="drawLine(event.clientX);" onmousedown="processImage(event.clientX);"> Your browser does not support HTML5 Canvas. </canvas>
     </div>
-    <div style="position: absolute; top: 640px; left: 0px;">
-        <input type="file" id="fileinput" />
+    <div style="position: absolute; top: 530px; left: 0px;">
+        <p>This webpage does not upoad your photo to server! Image processing is done on your web browser!</p>
+        <span>Photo:</span><input type="file" id="fileinput" />
         <img id="photo_id" src="" alt="Mountain" style="display: none;">
         <script type="text/javascript">
             function readSingleFile(evt) {
